@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class FinallyMain2 {
+public class FinallyMain3 {
 
     public static void main(String[] args){
 
@@ -25,7 +25,17 @@ public class FinallyMain2 {
             //executing query
             conn.close();
         } catch (SQLException e) {
-            throw new Exception(e.getMessage());
+
+            System.out.println("catch 1");
+
+            //Doesn't execute finally
+            // 0 - Success
+            // 1 - Failure
+            System.exit(0);
+            //System.exit(1);
+
+            throw new Exception("Catch Sql");
+
         } finally {
             if (conn != null) {
                 try {
@@ -34,6 +44,9 @@ public class FinallyMain2 {
                     e.printStackTrace();
                 }
             }
+            throw new Exception("finally");
         }
+
     }
+
 }

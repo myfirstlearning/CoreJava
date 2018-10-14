@@ -1,6 +1,5 @@
 package com.jnit.finall;
 
-import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,6 +10,10 @@ import java.sql.SQLException;
 //try-multiple catches
 //try-catch(one or more)-finally
 //try with finally
+//ClassNotFoundException vs noClassdeffounderror
+//loading class - static, dynamic
+//static - new Employee();
+//Dynamic - Class.forName("org.jnit.Employee");
 
 public class FinallyMain {
 
@@ -24,12 +27,13 @@ public class FinallyMain {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if(conn != null){
+            if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
             }
         }
 
